@@ -1,0 +1,90 @@
+<div id="body">
+  <div id="titel">
+    <div id="inTitel">
+      <div id="logo">
+        <img src="../assets/לוגושקוף.png">
+      </div>
+      <div id="p">
+        <p id="k">קמפיין אחינו בית ישראל </p>
+        <div id="pSum">
+          <p *ngIf="color==false" style="color: rgb(53, 53, 96); font-size:35px"> נתרם:  15,000,000$</p>
+          <p *ngIf="color==true" style="color: red; font-size:35px"> נתרם:  15,000,000$</p>
+          <p style="color:rgb(53, 53, 96);  font-size:35px;">15,000,000$ :היעד</p>
+          <!-- <p *ngIf="color==false" style="color: rgb(53, 53, 96); font-size:35px">15,000,000$ :היעד</p> -->
+        </div>
+      </div>
+    </div>
+    <div id="allBtn">
+
+
+      <button type="button" class="btn btn1 btn-danger" (click)="isOpenPupAp=true" data-bs-toggle="modal"
+        data-bs-target="#exampleModal" data-bs-whatever="@mdo">תרומה</button>
+      <button type="button" class="btn btn12 " (click)="isOpenPupAp=false" data-bs-toggle="modal"
+        data-bs-target="#exampleModal" data-bs-whatever="@mdo">התחיבות</button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel" *ngIf="isOpenPupAp==true">תרומה חדשה</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel" *ngIf="isOpenPupAp==false">התחייבות חדשה</h1>
+
+              <button type="button " class="btn-close buttonClose" data-bs-dismiss="modal" aria-label="Close">
+                <i class="fa fa-times " aria-hidden="true"></i></button>
+
+            </div>
+            <div class="modal-body">
+
+              <form (ngSubmit)="submitForm()">
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">שם פרטי:</label>
+                  <input type="text" class="form-control" id="recipient-name" name="recipientName"
+                    [(ngModel)]="firstName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">סכום לתרומה:</label>
+                  <input type="number" class="form-control" id="donation-amount" name="donationAmount" [(ngModel)]="donationAmount">
+                </div>
+
+                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal"
+                  (click)="updateSum1()">אישור</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="all">
+    <div class="allBrick img" style="margin: 0px;">
+      <div *ngFor="let item of numbersArray; let i = index" class="brick" 
+        [ngClass]="{'red-bg': i < wholeT&&i<indexAll, 'blue-bg':i<(wholeT+wholeE+flagT+flagE)&&i>=wholeT }">
+      
+        <!-- ,  -->
+        <div class="inBrick"  [ngClass]="{'half':halfT >=1&& i == wholeT , 'blue-bg':halfE>=1 && i == indexAll &&i<wholeE+flagE}"> </div>
+        <div class="inBrick"  [ngClass]="{'half':halfT >=2 && i == wholeT, 'blue-bg':halfE>=2 && i == indexAll&&i<wholeE+flagE}"></div>
+        <div class="inBrick"  [ngClass]="{'half':halfT >=3 && i == wholeT, 'blue-bg':halfE>=3 && i == indexAll&&i<wholeE+flagE}"></div>
+        <div class="inBrick"  [ngClass]="{'half':halfT >=4 && i == wholeT, 'blue-bg':halfE>=4 && i == indexAll&&i<wholeE+flagE}"></div>
+        <div class="inBrick"  [ngClass]="{'half':halfT >=5 && i == wholeT, 'blue-bg':halfE>=5 && i == indexAll&&i<wholeE+flagE}"></div>
+        <div class="inBrick"  [ngClass]="{'half':halfT >=6 && i == wholeT, 'blue-bg':halfE>=6 && i == indexAll&&i<wholeE+flagE}"></div>
+        <div class="inBrick"  [ngClass]="{'half':halfT >=7 && i == wholeT, 'blue-bg':halfE>=7 && i == indexAll&&i<wholeE+flagE}"></div>
+        <div class="inBrick"  [ngClass]="{'half':halfT >=8 && i == wholeT, 'blue-bg':halfE>=8 && i == indexAll&&i<wholeE+flagE}"></div>
+        <div class="inBrick"  [ngClass]="{'half':halfT >=9 && i == wholeT, 'blue-bg':halfE>=9 && i == indexAll&&i<wholeE+flagE}"></div>
+        <div class="inBrick"  [ngClass]="{'half':halfT >=10&&i == wholeT, 'blue-bg':halfE>=10 && i == indexAll&&i<wholeE+flagE}"></div>
+
+       
+
+        <!-- <div class="inBrick" *ngFor="let item of numbersArray" *ngIf="half!=0&&i==whole"  > -->
+
+        <!-- <div class="inBrick" *ngIf="half!=0&&i==whole"> -->
+      </div>
+      <!-- *ngif="color2==true" -->
+
+    </div>
+  </div>
+</div>
+
+<!-- <app-add-m (ifOpenPopUpEvent)="isLogin=false" *ngIf="isLogin"></app-add-m> -->
+
+<!-- <router-outlet></router-outlet> -->
