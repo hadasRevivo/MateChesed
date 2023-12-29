@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   sumAllE: number = 0;
   isOpenPupAp: boolean | undefined;
   color: boolean = true;
+  sumN:number=15000000;
 
   //   firstName: string = ''; // משתנה לשם הפרטי
   // donationAmount: number = 0;
@@ -41,6 +42,7 @@ export class AppComponent implements OnInit {
     if (storedSumAllT&& typeof storedSumAllT === 'string') {
       this.sumAllT = JSON.parse(storedSumAllT);
     }
+    this.sumN=this.sumN-this.sumAllE
     // קרא את הערך של sumAllT מ־localStorage
     const storedSumAllE = localStorage.getItem('sumAllE');
     // אם קיים ערך ב־localStorage, הקפוץ לתוך התנאי
